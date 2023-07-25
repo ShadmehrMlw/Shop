@@ -1,5 +1,22 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block extra_headers %}
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+{% endblock %}
 
 {% block content %}
-    <h3>Hello World</h3>
+    {% for product in products %}
+        <div class="card" style="width: 18rem;">
+            {% thumbnail product.image "195x220" quality=95 crop='center' as im %}
+                <img src="{{ im.url }}">
+            {% endthumbnail %}
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.description }}</p>
+                <a href="#" class="btn btn-primary">Product Detail</a>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}
