@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+{% block title %}
+    Detail
+{% endblock %}
+
+{% block content %}
+    {% thumbnail product.image "195x220" quality=95 crop='center' as im %}
+        <img src="{{ im.url }}">
+    {% endthumbnail %}
+    <br><br>
+    <h5 class="card-title">{{ product.name }}</h5>
+    <p class="card-text">{{ product.description }}</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="add to cart">
+    </form>
+{% endblock %}

@@ -60,3 +60,6 @@ class UserRegistrationVerifyCodeForm(forms.Form):
 class UserLoginForm(forms.Form):
     phone = forms.CharField(max_length=11)
     password = forms.CharField(widget=forms.PasswordInput)
+
+class ProductDetailForm(forms.Form):
+    queantity = forms.IntegerField(min_value=1, max_value=9)

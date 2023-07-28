@@ -7,15 +7,32 @@
 {% endblock %}
 
 {% block content %}
+    {% for category in categories %}
+        <!-- Example split danger button -->
+        <div class="btn-group">
+            <a href="{{ category.get_absolute_url }}" class="btn btn-danger">{{ category.name }}</a>
+            <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+                {% for sub in category.scategory.all %}
+                    <li><a class="dropdown-item" href="{{ sub.get_absolute_url }}">{{ sub.name }}</a></li>
+                {% endfor %}
+
+            </ul>
+        </div>
+    {% endfor %}
+    <br><br>
     {% for product in products %}
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 18rem; display: inline-block">
             {% thumbnail product.image "195x220" quality=95 crop='center' as im %}
                 <img src="{{ im.url }}">
             {% endthumbnail %}
             <div class="card-body">
                 <h5 class="card-title">{{ product.name }}</h5>
                 <p class="card-text">{{ product.description }}</p>
-                <a href="#" class="btn btn-primary">Product Detail</a>
+                <a href="{% url 'home:detail' product.slug %}" class="btn btn-primary">Product Detail</a>
             </div>
         </div>
     {% endfor %}

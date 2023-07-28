@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.views import View
 from utils import send_otp_code, UserLoginAccessToRegisterMixin
-from .forms import UserRegistrationForm, UserRegistrationVerifyCodeForm, UserLoginForm
+from .forms import UserRegistrationForm, UserRegistrationVerifyCodeForm, UserLoginForm, ProductDetailForm
 from .models import OtpCode, User
 from django.contrib import messages
 
