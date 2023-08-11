@@ -24,7 +24,7 @@ class UserRegisterView(UserLoginAccessToRegisterMixin, View):
                 'phone_number': form.cleaned_data['phone'],
                 'email': form.cleaned_data['email'],
                 'full_name': form.cleaned_data['full_name'],
-                'password': form.cleaned_data['password']
+                'password': form.cleaned_data['password'],
             }
             messages.success(request, 'we sent a code for you phone number', 'success')
             return redirect('accounts:verify_code')

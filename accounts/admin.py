@@ -23,7 +23,7 @@ class UserAdmin(BaseUserAdmin):
     )
 
     add_fieldsets = (
-        ('Add User', {'fields':('email', 'phone_number', 'full_name', 'password1', 'password2', 'is_admin')}),
+        ('None', {'fields':('email', 'phone_number', 'full_name', 'password1', 'password2', 'is_admin')}),
     )
 
     search_fields = ('phone_number',)

@@ -11,8 +11,9 @@
     {% endthumbnail %}
     <br><br>
     <h5 class="card-title">{{ product.name }}</h5>
+    <h5 class="card-title"></h5>
     <p class="card-text">{{ product.description }}</p>
-    <form action="" method="post">
+    <form action="{% url 'orders:add_cart' product.id %}" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="add to cart">

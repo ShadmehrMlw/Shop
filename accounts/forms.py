@@ -62,4 +62,4 @@ class UserLoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput)
 
 class ProductDetailForm(forms.Form):
-    queantity = forms.IntegerField(min_value=1, max_value=9)
+    quantity = forms.IntegerField(min_value=1, max_value=9)
